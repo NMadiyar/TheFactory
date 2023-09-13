@@ -6,7 +6,7 @@ const config: AxiosRequestConfig = {
   headers: {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
-    Authorization: "Client-ID H9K-Ne71uux1aaKuYrYq_HC1Q_4HYG6RcRGh_LN4CNg",
+    Authorization: "Client-ID aFmYEr2aXY2P5UMnpTXqHGKwclSVqXloWqKkuwOSFZ8",
   },
 };
 

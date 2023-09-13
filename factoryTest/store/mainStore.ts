@@ -5,7 +5,9 @@ export const useMainStore = defineStore({
   id: "useMainStore",
   state: () => ({
     images: [],
-    isLoading: true,
+    certainImage: {},
+    isLoaded: false,
+    favourites: [],
   }),
   actions: {
     async getImages() {
@@ -14,6 +16,20 @@ export const useMainStore = defineStore({
         images: response.data,
       });
       return response;
+    },
+    async searchForImage(word: string) {
+      const response = await api.images.searchForImages({ query: word });
+      this.$patch({
+        images: response.data.results,
+      });
+    },
+    async getCertainImage(id: string | string[]) {
+      await api.images.getCertainImage(id).then((res) => {
+        this.$patch({
+          certainImage: res.data,
+          isLoaded: true,
+        });
+      });
     },
   },
 });

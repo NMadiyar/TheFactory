@@ -1,23 +1,17 @@
 <template>
-  <div class="container bg-red-500">
-    {{ images }}
+  <div>
+    <div class="mt-10">
+      <Images />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { storeToRefs } from "pinia";
-import { defineComponent, onMounted, onUnmounted } from "vue";
-import { useMainStore } from "~/store/mainStore";
+import { defineComponent } from "vue";
+import Images from "~/components/main/Images.vue";
 export default defineComponent({
   name: "MainPage",
-  setup() {
-    const { getImages } = useMainStore();
-    const { images } = storeToRefs(useMainStore());
-    onMounted(async () => {
-      await getImages();
-    });
-    return { images };
-  },
+  components: { Images },
 });
 </script>
 
